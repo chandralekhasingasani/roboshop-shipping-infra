@@ -1,0 +1,10 @@
+variable "CIDR_BLOCK" {}
+variable "SUBNET_CIDR_BLOCK" {}
+variable "COMPONENT" {}
+variable "ENV" {}
+variable "AZ" {}
+variable "PROJECT_NAME" {}
+variable "ENGINE_VERSION" {}
+variable "SKIP_FINAL_SNAPSHOT" {}
+variable "ENGINE" {}
+variable "INSTANCE_CLASS" {}
