@@ -8,7 +8,8 @@ module "vpc"{
 }
 
 module "mysql"{
-  source              ="git::https://github.com/chandralekhasingasani/tf-module-mysql.git"
+  depends_on            = [module.vpc]
+  source                ="git::https://github.com/chandralekhasingasani/tf-module-mysql.git"
   ENGINE                 = var.ENGINE
   ENGINE_VERSION         = var.ENGINE_VERSION
   INSTANCE_CLASS         = var.INSTANCE_CLASS
