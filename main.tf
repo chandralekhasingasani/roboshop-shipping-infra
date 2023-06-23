@@ -19,4 +19,5 @@ module "mysql"{
   VPC_ID                 = module.vpc.VPC_ID
   SUBNET_IDS             = module.vpc.SUBNET_IDS
   CIDR_BLOCK             = module.vpc.VPC_CIDR
+  AZ                     = var.AZ
 }
