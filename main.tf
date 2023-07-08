@@ -21,3 +21,21 @@ module "mysql"{
   CIDR_BLOCK             = module.vpc.VPC_CIDR
   AZ                     = var.AZ
 }
+
+module "app"{
+  depends_on             = [module.elasticcache]
+  source                 = "git::https://github.com/chandralekhasingasani/tf-module-mutable.git"
+  ENV                    = var.ENV
+  COMPONENT              = var.COMPONENT
+  VPC_ID                 = module.vpc.VPC_ID
+  SUBNET_IDS             = module.vpc.SUBNET_IDS
+  CIDR_BLOCK             = module.vpc.VPC_CIDR
+  INSTANCE_TYPE          = var.INSTANCE_TYPE
+  SPOT_INSTANCE_COUNT    = var.SPOT_INSTANCE_COUNT
+  INSTANCE_COUNT         = var.INSTANCE_COUNT
+  WORKSTATION_IP         = var.WORKSTATION_IP
+  PORT                   = var.PORT
+  IAM_INSTANCE_PROFILE   = var.IAM_INSTANCE_PROFILE
+  IS_ALB_INTERNAL        = var.IS_ALB_INTERNAL
+  CIDR_BLOCK_ELB_ACCESS  = [var.FRONT_END_CIDR, module.vpc.VPC_CIDR]
+}
