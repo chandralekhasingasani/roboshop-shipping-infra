@@ -23,7 +23,7 @@ module "mysql"{
 }
 
 module "app"{
-  depends_on             = [module.elasticcache]
+  depends_on             = [module.mysql]
   source                 = "git::https://github.com/chandralekhasingasani/tf-module-mutable.git"
   ENV                    = var.ENV
   COMPONENT              = var.COMPONENT
