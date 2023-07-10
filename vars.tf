@@ -19,3 +19,6 @@ variable "IS_ALB_INTERNAL" {
   default = true
 }
 variable "FRONT_END_CIDR" {}
+variable "PROMETHEUS_IP" {
+  default = "172.31.90.202/32"
+}
